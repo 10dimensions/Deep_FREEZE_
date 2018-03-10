@@ -51,6 +51,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Low Poly Flat Sci Fi Assets\Demo\Scripts\DoubleSlidingDoorController.cs" />
+     <Compile Include="Assets\Low Poly Flat Sci Fi Assets\Demo\Scripts\FlickeringLight.cs" />
      <Compile Include="Assets\Test.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
