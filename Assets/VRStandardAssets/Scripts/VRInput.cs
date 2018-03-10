@@ -41,7 +41,12 @@ namespace VRStandardAssets.Utils
 
         public float DoubleClickTime{ get { return m_DoubleClickTime; } }
 
+        public static VRInput m_instance;
 
+        private void Awake()
+        {
+            m_instance = this;
+        }
         private void Update()
         {
             CheckInput();
