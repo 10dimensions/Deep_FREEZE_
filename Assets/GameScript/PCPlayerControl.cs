@@ -22,6 +22,14 @@ public partial class PCPlayerControl{
     private VRInput m_Input;
     public Text txt;
     public float m_maxHeight;
+    public Vector3 m_clampValueMax, m_clampValueMin;
+    public Transform m_mainCam, m_mainCamParent;
+    public Vector3 initialDis;
+    Transform m_transform;
+                     // How far the line renderer will reach if a target isn't hit.
+        [SerializeField] private float m_Damping = 0.5f;                                // The damping with which this gameobject follows the camera.
+        [SerializeField] private Reticle m_Reticle;                                     // This is what the gun arm should be aiming at.
+        private const float k_DampingCoef = -20f;  
    // public Scene AutoRunStartScene;
     #endregion
 
@@ -33,7 +41,10 @@ public partial class PCPlayerControl{
     }
     private void Start()
     {
-        
+        m_transform = this.transform;
+        m_clampValueMin = new Vector3(-450,0,-600);
+        m_clampValueMax = new Vector3(350, 0, 600);
+        initialDis = m_mainCam.position - m_transform.position;
     }
     private void OnEnable()
     {
@@ -55,8 +66,13 @@ public partial class PCPlayerControl{
     }
     private void Update()
     {
+        MyRotUpdate();
         if(currentMotion == CurrentMotion.Run)
         {
+            if(ReachedCorner())
+            {
+                FacePlayerOpposite();
+            }
             this.transform.Translate(Vector3.forward*0.1f);
         }
 
@@ -64,6 +80,39 @@ public partial class PCPlayerControl{
         {
             DoVerticalJump();
         }
+    }
+    private void LateUpdate()
+    {
+        
+    }
+    private void MyRotUpdate()
+    {
+        m_mainCamParent.position = m_transform.position;
+        m_transform.eulerAngles = m_mainCam.eulerAngles;
+        // Find a rotation for the gun to be pointed at the reticle.
+        //Quaternion lookAtRotation = Quaternion.LookRotation(m_Reticle.ReticleTransform.position - m_transform.position);
+
+        // Smoothly interpolate the gun's rotation towards that rotation.
+        //m_transform.rotation = Quaternion.Slerp(m_transform.rotation, lookAtRotation,
+            //10 * Time.deltaTime);
+       // m_transform.localEulerAngles = m_mainCam.localEulerAngles;
+       // m_transform.LookAt(lookAt);
+       // m_transform.rotation = Quaternion.Slerp(m_transform.rotation, m_mainCam.rotation, 0.1f);
+        //m_transform.eulerAngles = m_mainCam.eulerAngles;
+        //m_mainCam.localEulerAngles = new Vector3(0,0,0);
+        // Smoothly interpolate this gameobject's rotation towards that of the user/camera.
+       // m_transform.rotation = Quaternion.Slerp(m_transform.rotation, UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.Head),
+        //    m_Damping * (1 - Mathf.Exp(k_DampingCoef * Time.deltaTime)));
+
+        //// Move this gameobject to the camera.
+        //transform.position = m_transform.position;
+
+        //// Find a rotation for the gun to be pointed at the reticle.
+        //Quaternion lookAtRotation = Quaternion.LookRotation(m_Reticle.ReticleTransform.position - m_GunContainer.position);
+
+        //// Smoothly interpolate the gun's rotation towards that rotation.
+        //m_GunContainer.rotation = Quaternion.Slerp(m_GunContainer.rotation, lookAtRotation,
+            //m_GunContainerSmoothing * Time.deltaTime);
     }
     #endregion
 
@@ -139,6 +188,17 @@ public partial class PCPlayerControl{
    void StartAutoRun()
     {
         currentMotion = CurrentMotion.Run;
+    }
+
+    bool ReachedCorner()
+    {
+        return m_transform.position.x < m_clampValueMin.x || m_transform.position.x > m_clampValueMax.x || 
+                          m_transform.position.z < m_clampValueMin.z || m_transform.position.z > m_clampValueMax.z;
+
+    }
+    void FacePlayerOpposite()
+    {
+        
     }
 }
 

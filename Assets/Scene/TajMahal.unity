@@ -1674,6 +1674,11 @@ MonoBehaviour:
   m_rigidbody: {fileID: 1758156805}
   txt: {fileID: 0}
   m_maxHeight: 0
+  m_clampValueMax: {x: 0, y: 0, z: 0}
+  m_clampValueMin: {x: 0, y: 0, z: 0}
+  m_mainCam: {fileID: 0}
+  m_Damping: 0.5
+  m_Reticle: {fileID: 0}
 --- !u!54 &1758156805
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1824,7 +1829,7 @@ Transform:
   m_GameObject: {fileID: 1844845804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.40611815, y: -78.54, z: 11.9}
-  m_LocalScale: {x: 200, y: 2, z: 200}
+  m_LocalScale: {x: 160, y: 2, z: 160}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
