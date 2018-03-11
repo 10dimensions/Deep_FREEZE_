@@ -23,6 +23,7 @@ using UnityEngine;
 using VR = UnityEngine.VR;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Shows the Oculus plaform UI.
@@ -211,8 +212,13 @@ public class OVRPlatformMenu : MonoBehaviour
 		eBackButtonAction action = HandleBackButtonState();
 		if (action == eBackButtonAction.SHORT_PRESS)
 		{
-			if (OnShortPress == null || OnShortPress())
-				ShowConfirmQuitMenu();
+            if (SceneManager.GetActiveScene().buildIndex > 1)
+            {
+                SceneManager.LoadScene(1);
+            }
+            PCPlayerControl.txt.text = "Back button short press";
+			//if (OnShortPress == null || OnShortPress())
+				//ShowConfirmQuitMenu();
 		}
 #endif
 	}

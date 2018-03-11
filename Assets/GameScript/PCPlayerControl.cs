@@ -20,12 +20,25 @@ public partial class PCPlayerControl{
     IEnumerator m_verticalJumpCoroutine;
     public static PCPlayerControl m_instance;
     private VRInput m_Input;
-    public Text txt;
+    public  Text mtxt;
+    public static Text txt{
+        get{
+            return m_instance.mtxt;
+        }
+    }
     public float m_maxHeight;
     public Vector3 m_clampValueMax, m_clampValueMin;
     public Transform m_mainCam, m_mainCamParent;
     public Vector3 initialDis;
+    bool m_playerStatic = true;
     Transform m_transform;
+
+    Vector3 m_initialPlayerPos;
+    Vector3 m_initialPlayerRot;
+    Vector3 m_initialCameraPos;
+    Vector3 m_initialCameraRot;
+
+
                      // How far the line renderer will reach if a target isn't hit.
         [SerializeField] private float m_Damping = 0.5f;                                // The damping with which this gameobject follows the camera.
         [SerializeField] private Reticle m_Reticle;                                     // This is what the gun arm should be aiming at.
@@ -45,11 +58,26 @@ public partial class PCPlayerControl{
         m_clampValueMin = new Vector3(-450,0,-600);
         m_clampValueMax = new Vector3(350, 0, 600);
         initialDis = m_mainCam.position - m_transform.position;
+        m_rigidbody.isKinematic = true;
+
+        OVRTouchpad.Create();
+        OVRTouchpad.TouchHandler += HandleTouchHandler;
+
+        m_initialCameraPos = m_mainCam.position;
+        m_initialCameraRot = m_mainCam.eulerAngles;
+
+        m_initialPlayerPos = m_transform.position;
+        m_initialPlayerRot = m_transform.eulerAngles;
     }
     private void OnEnable()
     {
         m_Input.OnClick += OnClick;
         m_Input.OnDown += OnDown;
+
+
+        m_Input.OnUp += OnUp;
+        m_Input.OnCancel += Cancel;
+        m_Input.OnDoubleClick += doubleClick;
     }
     private void OnDisable()
     {
@@ -59,19 +87,37 @@ public partial class PCPlayerControl{
     void OnLevelWasLoaded()
     {
         //TODO change build-index
-        if(SceneManager.GetActiveScene().buildIndex==1)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
+            m_playerStatic = true;
+            m_transform.position = m_initialPlayerPos;
+            m_transform.eulerAngles = m_initialPlayerRot;
+            m_mainCam.position = m_initialCameraPos;
+            m_mainCam.eulerAngles = m_initialPlayerRot;
+        }
+        else if(SceneManager.GetActiveScene().buildIndex==2)
+        {
+            m_playerStatic = false;
+            m_rigidbody.isKinematic = false;
             StartAutoRun();
+        }
+        else
+        {
+            m_playerStatic = false;
         }
     }
     private void Update()
     {
+        if (m_playerStatic)
+            return;
+        
         MyRotUpdate();
         if(currentMotion == CurrentMotion.Run)
         {
             if(ReachedCorner())
             {
                 FacePlayerOpposite();
+                return;
             }
             this.transform.Translate(Vector3.forward*0.1f);
         }
@@ -89,30 +135,7 @@ public partial class PCPlayerControl{
     {
         m_mainCamParent.position = m_transform.position;
         m_transform.eulerAngles = m_mainCam.eulerAngles;
-        // Find a rotation for the gun to be pointed at the reticle.
-        //Quaternion lookAtRotation = Quaternion.LookRotation(m_Reticle.ReticleTransform.position - m_transform.position);
 
-        // Smoothly interpolate the gun's rotation towards that rotation.
-        //m_transform.rotation = Quaternion.Slerp(m_transform.rotation, lookAtRotation,
-            //10 * Time.deltaTime);
-       // m_transform.localEulerAngles = m_mainCam.localEulerAngles;
-       // m_transform.LookAt(lookAt);
-       // m_transform.rotation = Quaternion.Slerp(m_transform.rotation, m_mainCam.rotation, 0.1f);
-        //m_transform.eulerAngles = m_mainCam.eulerAngles;
-        //m_mainCam.localEulerAngles = new Vector3(0,0,0);
-        // Smoothly interpolate this gameobject's rotation towards that of the user/camera.
-       // m_transform.rotation = Quaternion.Slerp(m_transform.rotation, UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.Head),
-        //    m_Damping * (1 - Mathf.Exp(k_DampingCoef * Time.deltaTime)));
-
-        //// Move this gameobject to the camera.
-        //transform.position = m_transform.position;
-
-        //// Find a rotation for the gun to be pointed at the reticle.
-        //Quaternion lookAtRotation = Quaternion.LookRotation(m_Reticle.ReticleTransform.position - m_GunContainer.position);
-
-        //// Smoothly interpolate the gun's rotation towards that rotation.
-        //m_GunContainer.rotation = Quaternion.Slerp(m_GunContainer.rotation, lookAtRotation,
-            //m_GunContainerSmoothing * Time.deltaTime);
     }
     #endregion
 
@@ -198,7 +221,55 @@ public partial class PCPlayerControl{
     }
     void FacePlayerOpposite()
     {
-        
+        m_mainCam.Rotate(new Vector3(0,180,0));
+        MyRotUpdate();
+        this.transform.Translate(Vector3.forward * 0.1f);
+    }
+
+
+
+    void HandleTouchHandler(object sender, System.EventArgs e)
+    {
+        OVRTouchpad.TouchArgs touchArgs = (OVRTouchpad.TouchArgs)e;
+        if (touchArgs.TouchType == OVRTouchpad.TouchEvent.SingleTap)
+        {
+            // txt.text = "SingleTap!";
+
+        }
+        else if (touchArgs.TouchType == OVRTouchpad.TouchEvent.Up)
+        {
+            txt.text = "Up!";
+
+        }
+        else if (touchArgs.TouchType == OVRTouchpad.TouchEvent.Left)
+        {
+            txt.text = "Left!";
+
+        }
+        else if (touchArgs.TouchType == OVRTouchpad.TouchEvent.Right)
+        {
+            txt.text = "Right!";
+
+        }
+        else if (touchArgs.TouchType == OVRTouchpad.TouchEvent.Down)
+        {
+            txt.text = "Down!";
+
+        }
+    }
+
+    void OnUp()
+    { txt.text = "OnUp Input Over"; CancelInvoke(); Invoke("stop", 2); }
+
+    void Cancel()
+    { txt.text = "Cancel Input Over"; }
+    void doubleClick()
+    { txt.text = "doubleClick Input Over"; CancelInvoke(); Invoke("stop", 2); }
+    //Handle the Over event
+    private void HandleOver()
+    {
+        Debug.Log("Show over state");
+        txt.text = "Handle Over";
     }
 }
 
