@@ -7,6 +7,8 @@ using System.IO;
 
 public class speechUI : MonoBehaviour {
 	
+
+	private string requestUri="";
 	// Use this for initialization
 	void Start () {
 		
@@ -17,7 +19,8 @@ public class speechUI : MonoBehaviour {
 		
 	}
 
-/*	public void uploadSound()
+	/* 
+	public void uploadSound()
 	{
 		HttpWebRequest request = null;
 		request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
@@ -49,8 +52,8 @@ public class speechUI : MonoBehaviour {
 				// Flush
 				requestStream.Flush();
 			}
-		}    
-	}*/
+		}   
+	}*/ 
 
 	public void parseText()
 	{
