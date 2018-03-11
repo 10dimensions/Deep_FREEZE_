@@ -70,14 +70,13 @@ public class sciFiController : MonoBehaviour {
     //        Debug.Log("pyramid clicked");
     //        SceneManager.LoadScene("TajMahal");
             
+
     //        }
     //        else if(hitInfo.transform.gameObject.tag == "taj"){
              
     //        }
     //    }
     //}
-
-
     public void mapClick()
     {   
         pfx.SetActive(true);

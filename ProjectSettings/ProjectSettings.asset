@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 86c121d091e1646f9a2d75a6701eb136
+  productGUID: 21e400ace664442109c331c30d502c46
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 3
@@ -12,7 +12,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: DeepFREEZE
+  productName: Deep_FREEZE_
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -67,7 +67,7 @@ PlayerSettings:
   defaultIsFullScreen: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
-  runInBackground: 1
+  runInBackground: 0
   captureSingleScreen: 0
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
@@ -88,7 +88,7 @@ PlayerSettings:
   xboxEnableKinect: 0
   xboxEnableKinectAutoTracking: 0
   xboxEnableFitness: 0
-  visibleInBackground: 0
+  visibleInBackground: 1
   allowFullscreenSwitch: 1
   graphicsJobMode: 0
   macFullscreenMode: 2
@@ -153,20 +153,14 @@ PlayerSettings:
   protectGraphicsMemory: 0
   useHDRDisplay: 0
   m_ColorGamuts: 00000000
-  targetPixelDensity: 30
+  targetPixelDensity: 0
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier:
-    Android: com.ddhack.deepfreeze
-    Standalone: unity.Unity.VRSamples
-    Tizen: com.unity3d.vrstandardassets
-    iOS: com.unity3d.vrstandardassets
-    tvOS: com.unity3d.vrstandardassets
-  buildNumber:
-    iOS: 0
+  applicationIdentifier: {}
+  buildNumber: {}
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 21
+  AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
   aotOptions: 
@@ -183,10 +177,10 @@ PlayerSettings:
     serializedVersion: 2
     m_Bits: 238
   iPhoneSdkVersion: 988
-  iOSTargetOSVersionString: 7.0
+  iOSTargetOSVersionString: 
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
-  tvOSTargetOSVersionString: 9.0
+  tvOSTargetOSVersionString: 
   uIPrerenderedIcon: 0
   uIRequiresPersistentWiFi: 0
   uIRequiresFullScreen: 1
@@ -238,20 +232,20 @@ PlayerSettings:
   iOSURLSchemes: []
   iOSBackgroundModes: 0
   iOSMetalForceHardShadows: 0
-  metalEditorSupport: 1
+  metalEditorSupport: 0
   metalAPIValidation: 1
-  iOSRenderExtraFrameOnPause: 1
+  iOSRenderExtraFrameOnPause: 0
   appleDeveloperTeamID: 
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
   appleEnableAutomaticSigning: 0
-  clonedFromGUID: 5a86b210c1fdd0a47944fb1e9e3bc5bd
+  clonedFromGUID: 00000000000000000000000000000000
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
-  AndroidTVCompatibility: 0
+  AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0
   androidEnableBanner: 1
@@ -262,34 +256,10 @@ PlayerSettings:
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons:
-  - m_BuildTarget: 
-    m_Icons:
-    - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 8de506d4489bff74488535c40e1f6f59, type: 3}
-      m_Width: 128
-      m_Height: 128
-      m_Kind: 0
-  m_BuildTargetBatching:
-  - m_BuildTarget: Standalone
-    m_StaticBatching: 0
-    m_DynamicBatching: 0
-  - m_BuildTarget: Android
-    m_StaticBatching: 1
-    m_DynamicBatching: 0
-  m_BuildTargetGraphicsAPIs:
-  - m_BuildTarget: WindowsStandaloneSupport
-    m_APIs: 02000000
-    m_Automatic: 1
-  m_BuildTargetVRSettings:
-  - m_BuildTarget: Standalone
-    m_Enabled: 1
-    m_Devices:
-    - Oculus
-  - m_BuildTarget: Android
-    m_Enabled: 1
-    m_Devices:
-    - Oculus
+  m_BuildTargetIcons: []
+  m_BuildTargetBatching: []
+  m_BuildTargetGraphicsAPIs: []
+  m_BuildTargetVRSettings: []
   m_BuildTargetEnableVuforiaSettings: []
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
@@ -298,13 +268,7 @@ PlayerSettings:
     Android: 1
     iPhone: 1
     tvOS: 1
-  m_BuildTargetGroupLightmapEncodingQuality:
-  - m_BuildTarget: Standalone
-    m_EncodingQuality: 1
-  - m_BuildTarget: XboxOne
-    m_EncodingQuality: 1
-  - m_BuildTarget: PS4
-    m_EncodingQuality: 1
+  m_BuildTargetGroupLightmapEncodingQuality: []
   wiiUTitleID: 0005000011000000
   wiiUGroupID: 00010000
   wiiUCommonSaveSize: 4096
@@ -337,7 +301,7 @@ PlayerSettings:
   switchSocketConcurrencyLimit: 14
   switchScreenResolutionBehavior: 2
   switchUseCPUProfiler: 0
-  switchApplicationID: 0x0005000C10000001
+  switchApplicationID: 0x01004b9000490000
   switchNSODependencies: 
   switchTitleNames_0: 
   switchTitleNames_1: 
@@ -403,7 +367,7 @@ PlayerSettings:
   switchAccessibleURLs: 
   switchLegalInformation: 
   switchMainThreadStackSize: 1048576
-  switchPresenceGroupId: 0x0005000C10000001
+  switchPresenceGroupId: 
   switchLogoHandling: 0
   switchReleaseVersion: 0
   switchDisplayVersion: 1.0.0
@@ -415,8 +379,8 @@ PlayerSettings:
   switchUserAccountSaveDataSize: 0
   switchUserAccountSaveDataJournalSize: 0
   switchApplicationAttribute: 0
-  switchCardSpecSize: 4
-  switchCardSpecClock: 25
+  switchCardSpecSize: -1
+  switchCardSpecClock: -1
   switchRatingsMask: 0
   switchRatingsInt_0: 0
   switchRatingsInt_1: 0
@@ -430,7 +394,7 @@ PlayerSettings:
   switchRatingsInt_9: 0
   switchRatingsInt_10: 0
   switchRatingsInt_11: 0
-  switchLocalCommunicationIds_0: 0x0005000C10000001
+  switchLocalCommunicationIds_0: 
   switchLocalCommunicationIds_1: 
   switchLocalCommunicationIds_2: 
   switchLocalCommunicationIds_3: 
@@ -458,7 +422,7 @@ PlayerSettings:
   ps4NPAgeRating: 12
   ps4NPTitleSecret: 
   ps4NPTrophyPackPath: 
-  ps4ParentalLevel: 1
+  ps4ParentalLevel: 11
   ps4ContentID: ED1633-NPXX51362_00-0000000000000000
   ps4Category: 0
   ps4MasterVersion: 01.00
@@ -468,7 +432,7 @@ PlayerSettings:
   ps4VideoOutPixelFormat: 0
   ps4VideoOutInitialWidth: 1920
   ps4VideoOutBaseModeInitialWidth: 1920
-  ps4VideoOutReprojectionRate: 120
+  ps4VideoOutReprojectionRate: 60
   ps4PronunciationXMLPath: 
   ps4PronunciationSIGPath: 
   ps4BackgroundImagePath: 
@@ -493,7 +457,7 @@ PlayerSettings:
   ps4DownloadDataSize: 0
   ps4GarlicHeapSize: 2048
   ps4ProGarlicHeapSize: 2560
-  ps4Passcode: frAQBc8Wsa1xVPfvJcrgRYwTiizs2trQ
+  ps4Passcode: oG9srCTR2TPgNtjKi6dr2pLqJrfl5g8w
   ps4pnSessions: 1
   ps4pnPresence: 1
   ps4pnFriends: 1
@@ -504,7 +468,7 @@ PlayerSettings:
   ps4ReprojectionSupport: 0
   ps4UseAudio3dBackend: 0
   ps4SocialScreenEnabled: 0
-  ps4ScriptOptimizationLevel: 3
+  ps4ScriptOptimizationLevel: 0
   ps4Audio3dVirtualSpeakerCount: 14
   ps4attribCpuUsage: 0
   ps4PatchPkgPath: 
@@ -539,7 +503,7 @@ PlayerSettings:
   psp2LiveAreaTrialPath: 
   psp2PatchChangeInfoPath: 
   psp2PatchOriginalPackage: 
-  psp2PackagePassword: F69AzBlax3CF3EDNhm3soLBPh71Yexui
+  psp2PackagePassword: fQJLpdUysdbsItlPgtJdFWAT0TZ8CS6L
   psp2KeystoneFile: 
   psp2MemoryExpansionMode: 0
   psp2DRMType: 0
@@ -587,39 +551,27 @@ PlayerSettings:
   webGLCompressionFormat: 1
   scriptingDefineSymbols:
     1: CROSS_PLATFORM_INPUT
-    2: CROSS_PLATFORM_INPUT
     4: CROSS_PLATFORM_INPUT;MOBILE_INPUT
     7: CROSS_PLATFORM_INPUT;MOBILE_INPUT
     14: MOBILE_INPUT
-    15: CROSS_PLATFORM_INPUT;MOBILE_INPUT
-    16: CROSS_PLATFORM_INPUT;MOBILE_INPUT
     17: MOBILE_INPUT
     20: MOBILE_INPUT
-  platformArchitecture:
-    iOS: 2
-  scriptingBackend:
-    Android: 0
-    Metro: 2
-    PS4: 0
-    Standalone: 0
-    WP8: 2
-    WebGL: 1
-    iOS: 1
-  incrementalIl2cppBuild:
-    iOS: 0
+  platformArchitecture: {}
+  scriptingBackend: {}
+  incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 0
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: VRStandardAssets
+  metroPackageName: Deep_FREEZE_
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: VRStandardAssets
+  metroApplicationDescription: Deep_FREEZE_
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -628,9 +580,10 @@ PlayerSettings:
   metroLargeTileShowName: 0
   metroWideTileShowName: 0
   metroDefaultTileSize: 1
-  metroTileForegroundText: 1
-  metroTileBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
-  metroSplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  metroTileForegroundText: 2
+  metroTileBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21568628, a: 0}
+  metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628,
+    a: 1}
   metroSplashScreenUseBackgroundColor: 0
   platformCapabilities: {}
   metroFTAName: 
@@ -643,7 +596,7 @@ PlayerSettings:
   tizenGPSPermissions: 0
   tizenMicrophonePermissions: 0
   tizenDeploymentTarget: 
-  tizenDeploymentTargetType: 0
+  tizenDeploymentTargetType: -1
   tizenMinOSVersion: 1
   n3dsUseExtSaveData: 0
   n3dsCompressStaticMem: 1
@@ -683,13 +636,12 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled:
-    UNet: 1
-  facebookSdkVersion: 7.9.1
+  cloudServicesEnabled: {}
+  facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: c16b8bb2-8a3c-4170-9cf0-966e4f0e0adb
-  projectName: DeepFREEZE
-  organizationId: palash_bhowmick1
+  cloudProjectId: 
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

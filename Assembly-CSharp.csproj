@@ -54,10 +54,10 @@
      <Compile Include="Assets\Art Asset\Low Poly Flat Sci Fi Assets\Demo\Scripts\DoubleSlidingDoorController.cs" />
      <Compile Include="Assets\Art Asset\Low Poly Flat Sci Fi Assets\Demo\Scripts\FlickeringLight.cs" />
      <Compile Include="Assets\GameScript\gameManage.cs" />
-     <Compile Include="Assets\GameScript\holograbButton.cs" />
      <Compile Include="Assets\GameScript\LoadManager.cs" />
      <Compile Include="Assets\GameScript\PCPlayerControl.cs" />
      <Compile Include="Assets\GameScript\sciFiController.cs" />
+     <Compile Include="Assets\GameScript\speechUI.cs" />
      <Compile Include="Assets\OVR\Scripts\Composition\OVRCameraComposition.cs" />
      <Compile Include="Assets\OVR\Scripts\Composition\OVRComposition.cs" />
      <Compile Include="Assets\OVR\Scripts\Composition\OVRCompositionUtil.cs" />
@@ -166,13 +166,27 @@
      <Compile Include="Assets\VRStandardAssets\Scripts\VRInput.cs" />
      <Compile Include="Assets\VRStandardAssets\Scripts\VRInteractiveItem.cs" />
      <Compile Include="Assets\VRStandardAssets\Scripts\VRTrackingReset.cs" />
+     <None Include="Assets\OVR\Resources\OVRMRUnlitTransparent.shader" />
+     <None Include="Assets\OVR\Resources\OVRMRChromaKey.cginc" />
      <None Include="Assets\GameScript\360Shader.shader" />
      <None Include="Assets\VRSampleScenes\Shaders\UnlitTransparentParam.shader" />
+     <None Include="Assets\OVR\Shaders\OVRColorRampAlpha.shader" />
+     <None Include="Assets\OVR\Resources\Cubemap Blit.shader" />
      <None Include="Assets\VRSampleScenes\Shaders\UIOverlay.shader" />
+     <None Include="Assets\OVR\Resources\OVRMRUnlit.shader" />
+     <None Include="Assets\OVR\Shaders\Unlit Crosshair.shader" />
      <None Include="Assets\VRSampleScenes\Shaders\PriorityParticleAlpha.shader" />
+     <None Include="Assets\OVR\Resources\Unlit Transparent Color.shader" />
+     <None Include="Assets\OVR\Resources\OVRMRCameraFrameLit.shader" />
      <None Include="Assets\VRSampleScenes\Shaders\SlidingUV.shader" />
+     <None Include="Assets\OVR\Resources\Underlay Transparent Occluder.shader" />
+     <None Include="Assets\OVR\Resources\Texture2D Blit.shader" />
      <None Include="Assets\VRSampleScenes\Shaders\SeparableAlpha.shader" />
      <None Include="Assets\VRSampleScenes\Fonts\LICENSE.txt" />
+     <None Include="Assets\OVR\Resources\OVRMRCameraFrame.shader" />
+     <None Include="Assets\OVR\Resources\OVRMRClipPlane.shader" />
+     <None Include="Assets\OVR\Resources\Underlay Impostor.shader" />
+     <None Include="Assets\OVR\Plugins\placeholder.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -257,6 +271,10 @@
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/admin/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{6773B475-2D30-8BC3-D96E-F331B0D1C6DA}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

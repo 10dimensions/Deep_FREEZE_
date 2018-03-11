@@ -4,13 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scene/Init.unity
-    guid: 6a874d29392624ba2a13bd02309d23a2
-  - enabled: 1
-    path: Assets/Scene/OpeningScene.unity
-    guid: 0b0403de45d31496f8b90f72b42b0ba0
-  - enabled: 1
-    path: Assets/Scene/TajMahal.unity
-    guid: f0a104283de38a14d9983a24cecba4f4
+  m_Scenes: []

@@ -26,6 +26,8 @@ public partial class PCPlayerControl{
             return m_instance.mtxt;
         }
     }
+
+    public GameObject firework;
     public float m_maxHeight;
     public Vector3 m_clampValueMax, m_clampValueMin;
     public Transform m_mainCam, m_mainCamParent;
@@ -51,6 +53,7 @@ public partial class PCPlayerControl{
     {
         m_instance = this;
         m_Input = VRInput.m_instance;
+        //m_Input=VRInput.m_instance;
     }
     private void Start()
     {
@@ -69,6 +72,7 @@ public partial class PCPlayerControl{
         m_initialPlayerPos = m_transform.position;
         m_initialPlayerRot = m_transform.eulerAngles;
     }
+
     private void OnEnable()
     {
         m_Input.OnClick += OnClick;
@@ -204,6 +208,20 @@ public partial class PCPlayerControl{
         txt.text = "should Jump";
         DoVerticalJump();
     }
+
+    void OnDoubleClick()
+    {
+        StartCoroutine(fireworkRoutine());
+    }
+
+    public IEnumerator fireworkRoutine()
+    {   
+        GameObject fireworkObj=Instantiate(firework, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+        fireworkObj.transform.parent=this.gameObject.transform;
+        Destroy(fireworkObj, 10f);
+        yield return null;        
+    }
+
     void OnDown()
     {
         txt.text = "On Down";
@@ -271,6 +289,8 @@ public partial class PCPlayerControl{
         Debug.Log("Show over state");
         txt.text = "Handle Over";
     }
+
+
 }
 
 public partial class PCPlayerControl : MonoBehaviour {
