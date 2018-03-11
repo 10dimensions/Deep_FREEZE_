@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class makes sure initial Objects are loaded only once
+/// </summary>
 public class DontDestroyOnLoad : MonoBehaviour {
 
     [SerializeField] private GameObject[] m_dntDestroyObjects;
