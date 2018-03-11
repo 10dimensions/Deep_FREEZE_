@@ -49,7 +49,8 @@ public class sciFiController : MonoBehaviour {
             
             }
             else if(hitInfo.transform.gameObject.tag == "taj"){
-             
+             Debug.Log("taj clicked");
+            SceneManager.LoadScene("Taj");
             }
         }
     }
