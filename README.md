@@ -1,4 +1,4 @@
-
+%2
 # Deep_FREEZE
 
 A Teleporter App Designed for Samsung Gear VR
@@ -19,7 +19,7 @@ Note: Speech Recognition not yet implemented in this repository.
 Snapshots:
 
 ![alt tag](https://github.com/prayaan/Deep_FREEZE_/blob/master/egypt.PNG)
-![alt tag](https://github.com/prayaan/Deep_FREEZE_/blob/master/taj mahal.PNG)
+![alt tag](https://github.com/prayaan/Deep_FREEZE_/blob/master/taj%20mahal.PNG)
 ![alt tag](https://github.com/prayaan/Deep_FREEZE_/blob/master/teleporter.PNG)
 
 
