@@ -17,4 +17,4 @@ Note: Speech Recognition not yet implemented in this repository.
 
 Snapshots:
 
-![alt tag](https://github.com/prayaan/Deep_FREEZE_/blob/master/commonImage.PNG)
+![alt tag](https://github.com/prayaan/Deep_FREEZE_/blob/master/commonImage.png)
